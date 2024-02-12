@@ -24,8 +24,18 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 
                 case 2:{//Factorial
                     System.out.println("\n---Factorial");
-                    System.out.print("Ingrese un numero: ");
-                    int n = leer.nextInt();
+                    int n = 0;
+                    while(n < 2 || n > 16){
+                        System.out.print("Ingrese un numero: ");
+                        n = leer.nextInt();
+                        if(n == 1){
+                            System.out.println("El factorial de 1 es 1, ingrese otro valor.");
+                        }else if(n > 16){
+                            System.out.println("No se pueden ingresar valores mayores a 16 ya que \nnetbeans no es capaz de imprimir el valor.(valor maximo int = 2147483647)");
+                        }else if(n < 1){
+                            System.out.println("Opcion no valida, tiene que ser un numero entre 2 y 16");
+                        }
+                    }
                     System.out.print("Factorial: ");
                     int f = Factorial(n);
                     System.out.print(f+"\n\n");
@@ -50,8 +60,18 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 }// fin cases 4
                 
                 case 5:{//Aprobado_o_reprobado
-                    
-                    
+                    System.out.println("\n---Aprobado_o_reprobado");
+                    int N = -1;
+                    while(N < 0 || N > 100){
+                        System.out.print("Ingrese la nota del estudiante:");
+                        N = leer.nextInt();
+                    }
+                    boolean alumn = Aprobado_o_reprobado(N);
+                    if(alumn){
+                        System.out.println("El alumno aprobo.\n");
+                    }else{
+                        System.out.println("El alumno reprobo.\n");
+                    }
                     break;
                 }// fin cases 5
                 
@@ -113,8 +133,12 @@ public class EjerciciosMetodosYString_CarlosFlores {
         System.out.print("El promedio de calificaciones es: "+prom);
     }
     
-    public static void Aprobado_o_reprobado (){
-        
+    public static boolean Aprobado_o_reprobado (int N){
+        boolean alumn = false;
+        if(N>= 60){
+            alumn = true;
+        }
+        return alumn;
     }
     
     public static void contains (){
