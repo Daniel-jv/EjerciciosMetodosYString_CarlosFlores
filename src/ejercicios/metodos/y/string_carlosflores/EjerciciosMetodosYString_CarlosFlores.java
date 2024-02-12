@@ -33,8 +33,12 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 }// fin cases 2
                 
                 case 3:{//Mensajes
-                    
-                    
+                    System.out.println("---Mensajes");
+                    System.out.print("Ingrese una cadena: ");
+                    leer.nextLine();
+                    String cad = leer.nextLine();
+                    Mensajes(cad);
+                    System.out.println("\n");
                     break;
                 }// fin cases 3
                 
@@ -84,8 +88,11 @@ public class EjerciciosMetodosYString_CarlosFlores {
         return fact;
     }
     
-    public static void Mensajes (){
-        
+    public static void Mensajes (String cad){
+        for (int i = 0; i < cad.length(); i++) {
+            System.out.print(cad.charAt(i));
+            System.out.print(" ");
+        }
     }
     
     public static void Promedios (){
