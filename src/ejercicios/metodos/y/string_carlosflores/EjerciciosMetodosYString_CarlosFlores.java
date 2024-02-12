@@ -28,12 +28,12 @@ public class EjerciciosMetodosYString_CarlosFlores {
                     int n = leer.nextInt();
                     System.out.print("Factorial: ");
                     int f = Factorial(n);
-                    System.out.print(f+"\n");
+                    System.out.print(f+"\n\n");
                     break;
                 }// fin cases 2
                 
                 case 3:{//Mensajes
-                    System.out.println("---Mensajes");
+                    System.out.println("\n---Mensajes");
                     System.out.print("Ingrese una cadena: ");
                     leer.nextLine();
                     String cad = leer.nextLine();
@@ -43,8 +43,9 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 }// fin cases 3
                 
                 case 4:{//Promedios
-                    
-                    
+                    System.out.println("\n---Promedios");
+                    Promedios();
+                    System.out.println("\n");
                     break;
                 }// fin cases 4
                 
@@ -96,7 +97,20 @@ public class EjerciciosMetodosYString_CarlosFlores {
     }
     
     public static void Promedios (){
-        
+        int prom = 0;
+        for (int i = 1; i < 5; i++) {
+            int not = -1;
+            while(not < 0 || not > 100){
+                System.out.println("Ingrese nota "+i+": ");
+                not = leer.nextInt();
+                if(not < 0 || not > 100){
+                    System.out.println("La nota tiene que ser entre 0 y 100, intente otra vez");
+                }
+            }
+            prom += not;
+        }
+        prom = prom / 4;
+        System.out.print("El promedio de calificaciones es: "+prom);
     }
     
     public static void Aprobado_o_reprobado (){
