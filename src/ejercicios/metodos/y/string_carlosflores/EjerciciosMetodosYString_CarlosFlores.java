@@ -110,7 +110,30 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 }// fin cases 5
                 
                 case 6:{//contains
-                    
+                    System.out.println("\n---Contains");
+                    String cad1 = "";
+                    String cad2 = "";
+                    leer.nextLine();//limpiar scanner
+                    while(cad1.length() < 1){
+                        System.out.print("Ingrese una cadena(por lo menos 1 caracter): ");
+                        cad1 = leer.nextLine();
+                        if(cad1.length() < 1){
+                            System.out.println("La cadena debe contener por lo menos 1 caracter, intente de nuevo.");
+                        }
+                    }
+                    while(cad2.length() > cad1.length() || cad2.length() == 0){
+                        System.out.print("Ingrese una cadena(con una cantidad de caracteres igual o menor a la anterior): ");
+                        cad2 = leer.nextLine();
+                        if(cad2.length() > cad1.length()){
+                            System.out.println("La cantidad de caracteres tiene que ser igual o menor a la anterior, intente de nuevo. ");
+                        }
+                    }
+                    boolean yorn = contains(cad1,cad2);
+                    if(yorn){
+                        System.out.println("La cadena principal contiene la subcadena.\n");
+                    }else{
+                        System.out.println("La cadena principal NO contiene la subcadena.\n");
+                    }
                     break;
                 }// fin cases 6
                 
@@ -131,7 +154,14 @@ public class EjerciciosMetodosYString_CarlosFlores {
     }
     
     public static String Replace (String cad, char sel, char cha){
-        String replaced = cad.replace(sel, cha);
+        String replaced = "";
+        for (int i = 0; i < cad.length(); i++) {
+            if(cad.charAt(i) == sel){
+                replaced += cha;
+            }else{
+                replaced += cad.charAt(i);
+            }
+        }
         return replaced;
     }
     
@@ -155,7 +185,7 @@ public class EjerciciosMetodosYString_CarlosFlores {
         for (int i = 1; i < 5; i++) {
             int not = -1;
             while(not < 0 || not > 100){
-                System.out.println("Ingrese nota "+i+": ");
+                System.out.print("Ingrese nota "+i+": ");
                 not = leer.nextInt();
                 if(not < 0 || not > 100){
                     System.out.println("La nota tiene que ser entre 0 y 100, intente otra vez");
@@ -175,8 +205,27 @@ public class EjerciciosMetodosYString_CarlosFlores {
         return alumn;
     }
     
-    public static void contains (){
-        
+    public static boolean contains (String cad1, String cad2){
+        boolean yorn = true; //yorn = yes or not
+        int cont_truer = 0;
+        for (int i = 0; i < cad1.length(); i++) {
+            if(cad1.charAt(i) == cad2.charAt(0)){
+                yorn = true;
+                int k = i;
+                for (int j = 0; j < cad2.length(); j++) {
+                    if(cad1.charAt(k) == cad2.charAt(j)){
+                        cont_truer++;
+                    }
+                    k++;
+                }
+            }else if(cont_truer != cad2.length()){
+                yorn = false;
+            }
+            if(cont_truer == cad2.length()){
+                break;
+            }
+        }
+        return yorn;
     }
     
 }
