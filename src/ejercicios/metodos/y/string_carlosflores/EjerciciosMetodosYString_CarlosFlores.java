@@ -17,8 +17,42 @@ public class EjerciciosMetodosYString_CarlosFlores {
             int op = leer.nextInt();
             switch(op){
                 case 1:{//Replace
-                    
-                    
+                    System.out.println("\n---Contains");
+                    boolean check = true;
+                    String select = "";
+                    String change = "";
+                    System.out.print("Ingrese una cadena: ");
+                    leer.nextLine();
+                    String cad = leer.nextLine();
+                    cad = cad.toLowerCase();
+                    while(select.length() != 1 || check){
+                        check = true;
+                        System.out.print("Ingrese el caracter a remplazar: ");
+                        select = leer.next();
+                        if(select.length() != 1){
+                            System.out.println("Debe ingresar solo 1 caracter, intente de nuevo");
+                        }
+                        for (int i = 0; i < cad.length(); i++) {
+                            if(cad.charAt(i) == select.charAt(0)){
+                                check = false;
+                            }
+                        }
+                        if(check){
+                            System.out.println("El caracter no se encuentra en la cadena, intente de nuevo.");
+                        }
+                    }
+                    char sel = select.charAt(0);
+                    while(change.length() != 1){
+                        check = true;
+                        System.out.print("Ingrese el caracter nuevo: ");
+                        change = leer.next();
+                        if(select.length() != 1){
+                            System.out.println("Debe ingresar solo 1 caracter, intente de nuevo");
+                        }
+                    }
+                    char cha = change.charAt(0);
+                    String replace = Replace(cad,sel,cha);
+                    System.out.println(replace+"\n");
                     break;
                 }// fin cases 1
                 
@@ -77,7 +111,6 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 
                 case 6:{//contains
                     
-                    
                     break;
                 }// fin cases 6
                 
@@ -97,8 +130,9 @@ public class EjerciciosMetodosYString_CarlosFlores {
         }while(var);
     }
     
-    public static void Replace (){
-        
+    public static String Replace (String cad, char sel, char cha){
+        String replaced = cad.replace(sel, cha);
+        return replaced;
     }
     
     public static int Factorial (int n){
