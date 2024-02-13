@@ -40,7 +40,7 @@ public class EjerciciosMetodosYString_CarlosFlores {
                         if(check){
                             System.out.println("El caracter no se encuentra en la cadena, intente de nuevo.");
                         }
-                    }
+                    }//while para validaciones del caracter a remplazar
                     char sel = select.charAt(0);
                     while(change.length() != 1){
                         check = true;
@@ -49,9 +49,9 @@ public class EjerciciosMetodosYString_CarlosFlores {
                         if(select.length() != 1){
                             System.out.println("Debe ingresar solo 1 caracter, intente de nuevo");
                         }
-                    }
+                    }//while para validaciones de el caracter nuevo
                     char cha = change.charAt(0);
-                    String replace = Replace(cad,sel,cha);
+                    String replace = Replace(cad,sel,cha);//METODO
                     System.out.println(replace+"\n");
                     break;
                 }// fin cases 1
@@ -69,9 +69,9 @@ public class EjerciciosMetodosYString_CarlosFlores {
                         }else if(n < 1){
                             System.out.println("Opcion no valida, tiene que ser un numero entre 2 y 16");
                         }
-                    }
+                    }//while de validacion para el rango de N
                     System.out.print("Factorial: ");
-                    int f = Factorial(n);
+                    int f = Factorial(n);//METODO
                     System.out.print(f+"\n\n");
                     break;
                 }// fin cases 2
@@ -81,14 +81,14 @@ public class EjerciciosMetodosYString_CarlosFlores {
                     System.out.print("Ingrese una cadena: ");
                     leer.nextLine();
                     String cad = leer.nextLine();
-                    Mensajes(cad);
+                    Mensajes(cad);//METODO
                     System.out.println("\n");
                     break;
                 }// fin cases 3
                 
                 case 4:{//Promedios
                     System.out.println("\n---Promedios");
-                    Promedios();
+                    Promedios();//METODO
                     System.out.println("\n");
                     break;
                 }// fin cases 4
@@ -99,8 +99,8 @@ public class EjerciciosMetodosYString_CarlosFlores {
                     while(N < 0 || N > 100){
                         System.out.print("Ingrese la nota del estudiante:");
                         N = leer.nextInt();
-                    }
-                    boolean alumn = Aprobado_o_reprobado(N);
+                    }//while de validacion para rango de nota
+                    boolean alumn = Aprobado_o_reprobado(N);//METODO
                     if(alumn){
                         System.out.println("El alumno aprobo.\n");
                     }else{
@@ -120,15 +120,15 @@ public class EjerciciosMetodosYString_CarlosFlores {
                         if(cad1.length() < 1){
                             System.out.println("La cadena debe contener por lo menos 1 caracter, intente de nuevo.");
                         }
-                    }
+                    }//while para validacion de cadena 1
                     while(cad2.length() > cad1.length() || cad2.length() == 0){
                         System.out.print("Ingrese una cadena(con una cantidad de caracteres igual o menor a la anterior): ");
                         cad2 = leer.nextLine();
                         if(cad2.length() > cad1.length()){
                             System.out.println("La cantidad de caracteres tiene que ser igual o menor a la anterior, intente de nuevo. ");
                         }
-                    }
-                    boolean yorn = contains(cad1,cad2);
+                    }//while de validaciones para cadena 2
+                    boolean yorn = contains(cad1,cad2);//METODO
                     if(yorn){
                         System.out.println("La cadena principal contiene la subcadena.\n");
                     }else{
@@ -146,12 +146,12 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 default:{
                     System.out.println("Opcion no valida, intente de nuevo.");
                     break;
-                }
+                }//fin default
                 
-            }
+            }//fin switch
 
-        }while(var);
-    }
+        }while(var);//fin while
+    }//fin main
     
     public static String Replace (String cad, char sel, char cha){
         String replaced = "";
@@ -163,7 +163,7 @@ public class EjerciciosMetodosYString_CarlosFlores {
             }
         }
         return replaced;
-    }
+    }//fin metodo Replace
     
     public static int Factorial (int n){
         int fact = 1;
@@ -171,14 +171,14 @@ public class EjerciciosMetodosYString_CarlosFlores {
             fact *= i;
         }
         return fact;
-    }
+    }//fin metodo Factorial
     
     public static void Mensajes (String cad){
         for (int i = 0; i < cad.length(); i++) {
             System.out.print(cad.charAt(i));
             System.out.print(" ");
         }
-    }
+    }//fin metodo Mensajes
     
     public static void Promedios (){
         int prom = 0;
@@ -195,7 +195,7 @@ public class EjerciciosMetodosYString_CarlosFlores {
         }
         prom = prom / 4;
         System.out.print("El promedio de calificaciones es: "+prom);
-    }
+    }//fin metodo Promedios
     
     public static boolean Aprobado_o_reprobado (int N){
         boolean alumn = false;
@@ -203,11 +203,11 @@ public class EjerciciosMetodosYString_CarlosFlores {
             alumn = true;
         }
         return alumn;
-    }
+    }//fin metodo Aprobado_o_reprobado
     
     public static boolean contains (String cad1, String cad2){
         boolean yorn = true; //yorn = yes or not
-        int cont_truer = 0;
+        int cont_truer = 0;//contador de cadena contenida
         for (int i = 0; i < cad1.length(); i++) {
             if(cad1.charAt(i) == cad2.charAt(0)){
                 yorn = true;
@@ -220,12 +220,12 @@ public class EjerciciosMetodosYString_CarlosFlores {
                 }
             }else if(cont_truer != cad2.length()){
                 yorn = false;
-            }
+            }//if por si el caracter es diferente retornar falso
             if(cont_truer == cad2.length()){
                 break;
-            }
+            }//if para terminar el ciclo cuando se encuentre la cadena contenida
         }
         return yorn;
-    }
+    }//fin metodo contains
     
-}
+}//fin class
